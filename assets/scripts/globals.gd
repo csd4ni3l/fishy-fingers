@@ -11,7 +11,7 @@ var all_hit = 0
 var last_hit_percent = 0
 var sell_cost_upgrades = 0
 var spawn_speed_upgrades = 0
-var blahaj_upgrades = 0
+var blahaj_upgrades = 5
 var toucan_upgrades = 1
 
 const COD_TYPES := ["blue", "green", "orange", "pink", "purple", "yellow"]

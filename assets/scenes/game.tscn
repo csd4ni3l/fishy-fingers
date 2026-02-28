@@ -139,7 +139,7 @@ script = ExtResource("13_fc420")
 position = Vector2(-3.333374, 11.648682)
 shape = SubResource("RectangleShape2D_fc420")
 
-[node name="blahaj_area2d" type="Area2D" parent="." unique_id=1258170752]
+[node name="blahaj_area2d" type="Area2D" parent="." unique_id=1258170752 groups=["blahaj"]]
 position = Vector2(-1141, 498)
 metadata/is_original = true
 
