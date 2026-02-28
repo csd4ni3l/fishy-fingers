@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://dgsxil03vytwi"]
+
+[ext_resource type="Texture2D" uid="uid://c362isr3mm3oj" path="res://assets/graphics/background.png" id="1_ulj4j"]
+[ext_resource type="Script" uid="uid://n4gqvy2ytjst" path="res://assets/scripts/background_scaler.gd" id="2_ulj4j"]
+[ext_resource type="FontFile" uid="uid://bd4iri86plmvs" path="res://font.ttf" id="7_7o21g"]
+[ext_resource type="Theme" uid="uid://b0kqa0xq44wmt" path="res://theme.tres" id="7_dd8ki"]
+[ext_resource type="Script" uid="uid://65gtnts6kj5w" path="res://assets/scripts/credits_close_button.gd" id="8_7o21g"]
+
+[sub_resource type="Theme" id="Theme_g3p6w"]
+default_font = ExtResource("7_7o21g")
+default_font_size = 32
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+
+[node name="Credits" type="Control" unique_id=1417362834]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="Sprite2D" parent="." unique_id=507322845]
+position = Vector2(573, 323.5)
+scale = Vector2(0.6, 0.6009259)
+texture = ExtResource("1_ulj4j")
+script = ExtResource("2_ulj4j")
+
+[node name="credits_label" type="RichTextLabel" parent="." unique_id=1646312536]
+layout_mode = 0
+offset_left = 203.0
+offset_top = 112.0
+offset_right = 1075.0
+offset_bottom = 623.0
+theme = ExtResource("7_dd8ki")
+theme_override_font_sizes/normal_font_size = 64
+text = "csd4ni3l - Game Developer
+Koni Rea - Graphics Designer
+Marsh - Graphics Designer
+Water splash sound effect from Pixabay
+Music by Viacheslav Starostin from Pixabay"
+
+[node name="close_button" type="Button" parent="." unique_id=1132807717]
+layout_mode = 0
+offset_left = 1034.0
+offset_top = 23.0
+offset_right = 1109.0
+offset_bottom = 94.0
+theme = SubResource("Theme_g3p6w")
+theme_override_font_sizes/font_size = 32
+text = "X"
+script = ExtResource("8_7o21g")
+
+[node name="title" type="RichTextLabel" parent="." unique_id=1072193387]
+layout_mode = 0
+offset_left = 412.0
+offset_top = 1.0
+offset_right = 755.0
+offset_bottom = 105.0
+theme = ExtResource("7_dd8ki")
+theme_override_font_sizes/normal_font_size = 96
+text = "Credits
+"

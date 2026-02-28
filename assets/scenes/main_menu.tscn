@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://c2tl28kgehoia"]
+
+[ext_resource type="Texture2D" uid="uid://c362isr3mm3oj" path="res://assets/graphics/background.png" id="1_ej4af"]
+[ext_resource type="FontFile" uid="uid://bd4iri86plmvs" path="res://font.ttf" id="1_obrqb"]
+[ext_resource type="Theme" uid="uid://b0kqa0xq44wmt" path="res://theme.tres" id="2_57ux2"]
+[ext_resource type="Script" uid="uid://n4gqvy2ytjst" path="res://assets/scripts/background_scaler.gd" id="2_xmmar"]
+[ext_resource type="Script" uid="uid://bqw60tl4be18a" path="res://assets/scripts/play_button.gd" id="3_f2xsc"]
+[ext_resource type="Script" uid="uid://qe15irthfjxd" path="res://assets/scripts/credits_button.gd" id="9_tp4c4"]
+
+[sub_resource type="Theme" id="Theme_7vrkn"]
+default_font = ExtResource("1_obrqb")
+default_font_size = 32
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="Control" unique_id=1443333066]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="Sprite2D" parent="." unique_id=1313136200]
+position = Vector2(573, 323.5)
+scale = Vector2(0.6, 0.6009259)
+texture = ExtResource("1_ej4af")
+script = ExtResource("2_xmmar")
+
+[node name="shop_label" type="RichTextLabel" parent="." unique_id=111770834]
+layout_mode = 0
+offset_left = 335.0
+offset_top = 171.0
+offset_right = 841.0
+offset_bottom = 268.0
+theme = SubResource("Theme_7vrkn")
+theme_override_font_sizes/normal_font_size = 64
+text = "Fishy Fingers"
+
+[node name="credits_button" type="Button" parent="." unique_id=2014728260]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.46100003
+anchor_bottom = 0.39600003
+offset_left = 319.0
+offset_top = 427.0
+offset_right = 287.92798
+offset_bottom = 295.39197
+theme = ExtResource("2_57ux2")
+text = "Credits"
+script = ExtResource("9_tp4c4")
+
+[node name="play_button" type="Button" parent="." unique_id=1330388568]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.46100003
+anchor_bottom = 0.39600003
+offset_left = 318.0
+offset_top = 283.0
+offset_right = 286.92798
+offset_bottom = 151.39197
+theme = ExtResource("2_57ux2")
+text = "Play"
+script = ExtResource("3_f2xsc")

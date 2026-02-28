@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b44s3ql48fqgs"]
+
+[ext_resource type="Texture2D" uid="uid://bdh8no6kvpber" path="res://assets/graphics/bubble.png" id="1_7wt87"]
+[ext_resource type="Script" uid="uid://bouh46cbivutc" path="res://assets/scripts/cutscene.gd" id="1_hw5wm"]
+[ext_resource type="Script" uid="uid://c02mfpu30mq5w" path="res://assets/scripts/bubble.gd" id="2_hw5wm"]
+[ext_resource type="Texture2D" uid="uid://c362isr3mm3oj" path="res://assets/graphics/background.png" id="4_hjtv6"]
+[ext_resource type="Script" uid="uid://n4gqvy2ytjst" path="res://assets/scripts/background_scaler.gd" id="5_y0eth"]
+
+[node name="Cutscene" type="Node2D" unique_id=525358259]
+script = ExtResource("1_hw5wm")
+
+[node name="bubble_to_clone" type="Sprite2D" parent="." unique_id=764080502]
+z_index = 99
+position = Vector2(-757, 280.99997)
+scale = Vector2(1, 0.88)
+texture = ExtResource("1_7wt87")
+script = ExtResource("2_hw5wm")
+metadata/is_original = true
+
+[node name="background" type="Sprite2D" parent="." unique_id=228251703]
+position = Vector2(573, 323.5)
+scale = Vector2(0.6, 0.6009259)
+texture = ExtResource("4_hjtv6")
+script = ExtResource("5_y0eth")

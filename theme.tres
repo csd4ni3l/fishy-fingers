@@ -1,0 +1,8 @@
+[gd_resource type="Theme" format=3 uid="uid://b0kqa0xq44wmt"]
+
+[ext_resource type="FontFile" uid="uid://bd4iri86plmvs" path="res://font.ttf" id="1_e1x85"]
+
+[resource]
+default_font = ExtResource("1_e1x85")
+default_font_size = 32
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)

@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://cdh481ubod11g"]
+
+[ext_resource type="Script" uid="uid://deoyoa417jjia" path="res://assets/scripts/shop_manager.gd" id="1_6p2lh"]
+[ext_resource type="Theme" uid="uid://b0kqa0xq44wmt" path="res://theme.tres" id="1_54clv"]
+[ext_resource type="FontFile" uid="uid://bd4iri86plmvs" path="res://font.ttf" id="1_s3tas"]
+[ext_resource type="Texture2D" uid="uid://bbhjrteldo3ki" path="res://assets/graphics/toucan.png" id="2_54clv"]
+[ext_resource type="Script" uid="uid://cyc55s4f8xujd" path="res://assets/scripts/fish_spawn_buy.gd" id="2_kam1a"]
+[ext_resource type="Script" uid="uid://c14tjf3qlxdi" path="res://assets/scripts/sell_cost_buy.gd" id="3_2uom1"]
+[ext_resource type="Texture2D" uid="uid://bfy0mfttvevvr" path="res://assets/graphics/blahaj.png" id="3_fxg5x"]
+[ext_resource type="Script" uid="uid://dpoooqbw6moto" path="res://assets/scripts/shop_close.gd" id="4_cxlow"]
+[ext_resource type="Script" uid="uid://bm7jxybqhhny2" path="res://assets/scripts/toucan_buy.gd" id="4_fxg5x"]
+[ext_resource type="Script" uid="uid://xye8ey43chew" path="res://assets/scripts/blahaj_buy.gd" id="7_cxlow"]
+[ext_resource type="Texture2D" uid="uid://c362isr3mm3oj" path="res://assets/graphics/background.png" id="11_d6ybq"]
+[ext_resource type="Script" uid="uid://n4gqvy2ytjst" path="res://assets/scripts/background_scaler.gd" id="12_nxakl"]
+
+[sub_resource type="Theme" id="Theme_j5wjh"]
+default_font = ExtResource("1_s3tas")
+default_font_size = 32
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_2uom1"]
+default_font = ExtResource("1_s3tas")
+default_font_size = 32
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+
+[node name="Shop" type="Control" unique_id=1195647882]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6p2lh")
+
+[node name="background" type="Sprite2D" parent="." unique_id=1096635644]
+position = Vector2(576.00006, 324.00003)
+scale = Vector2(0.59999996, 0.60231483)
+texture = ExtResource("11_d6ybq")
+script = ExtResource("12_nxakl")
+
+[node name="fish_spawn_upgrade" type="Button" parent="." unique_id=1358983973]
+layout_mode = 0
+offset_left = 878.0
+offset_top = 157.0
+offset_right = 1094.0
+offset_bottom = 336.0
+theme = ExtResource("1_54clv")
+theme_override_font_sizes/font_size = 24
+text = "Fish Spawn Speed
+upgrade
+(+1 / sec)
+Owned: 0
+Cost: 750$"
+script = ExtResource("2_kam1a")
+
+[node name="sell_cost_upgrade" type="Button" parent="." unique_id=2054873946]
+layout_mode = 0
+offset_left = 590.0
+offset_top = 155.0
+offset_right = 819.0
+offset_bottom = 334.0
+theme = ExtResource("1_54clv")
+theme_override_font_sizes/font_size = 24
+text = "Sell cost upgrade
+(+0.5$)
+Owned: 0
+Cost: 500$"
+script = ExtResource("3_2uom1")
+
+[node name="shop_label" type="RichTextLabel" parent="." unique_id=58579959]
+layout_mode = 0
+offset_left = 443.0
+offset_top = 30.0
+offset_right = 634.0
+offset_bottom = 120.0
+theme = SubResource("Theme_j5wjh")
+theme_override_font_sizes/normal_font_size = 64
+text = "Shop"
+
+[node name="toucan_label" type="RichTextLabel" parent="." unique_id=1078357010]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 266.0
+offset_right = 326.0
+offset_bottom = 391.0
+theme = SubResource("Theme_j5wjh")
+text = "Toucan
+Owned: 0
+Cost: 250$"
+
+[node name="toucan_button" type="TextureButton" parent="." unique_id=1039683139]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 122.0
+offset_right = 207.0
+offset_bottom = 272.0
+texture_normal = ExtResource("2_54clv")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_fxg5x")
+
+[node name="blahaj_label" type="RichTextLabel" parent="." unique_id=474178222]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 266.0
+offset_right = 568.0
+offset_bottom = 377.0
+theme = SubResource("Theme_j5wjh")
+text = "Blahaj
+Owned: 0
+Cost: 1000$"
+
+[node name="close_button" type="Button" parent="." unique_id=1862390014]
+layout_mode = 0
+offset_left = 1055.0
+offset_top = 35.0
+offset_right = 1130.0
+offset_bottom = 106.0
+theme = SubResource("Theme_j5wjh")
+theme_override_font_sizes/font_size = 32
+text = "X"
+script = ExtResource("4_cxlow")
+
+[node name="blahaj_button" type="TextureButton" parent="." unique_id=1677413315]
+layout_mode = 0
+offset_left = 324.0
+offset_top = 110.0
+offset_right = 504.0
+offset_bottom = 290.0
+texture_normal = ExtResource("3_fxg5x")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("7_cxlow")
+
+[node name="coins_label" type="RichTextLabel" parent="." unique_id=1439188814]
+top_level = true
+layout_mode = 0
+offset_left = 2.0
+offset_top = 18.0
+offset_right = 134.3406
+offset_bottom = 63.17251
+scale = Vector2(1.0200951, 1.1290053)
+mouse_filter = 2
+theme = SubResource("Theme_2uom1")
+text = "Coins:  {}"

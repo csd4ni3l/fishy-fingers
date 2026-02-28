@@ -1,0 +1,168 @@
+[gd_scene format=3 uid="uid://cqdfva3dlq28y"]
+
+[ext_resource type="Script" uid="uid://wwqm6xuj48lg" path="res://assets/scripts/game_manager.gd" id="1_fc420"]
+[ext_resource type="Texture2D" uid="uid://c362isr3mm3oj" path="res://assets/graphics/background.png" id="2_kc0sw"]
+[ext_resource type="Script" uid="uid://n4gqvy2ytjst" path="res://assets/scripts/background_scaler.gd" id="3_i358u"]
+[ext_resource type="Script" uid="uid://qp6v3st8ix3v" path="res://assets/scripts/fish_area_2d.gd" id="6_5jdip"]
+[ext_resource type="Theme" uid="uid://b0kqa0xq44wmt" path="res://theme.tres" id="8_rojm1"]
+[ext_resource type="Texture2D" uid="uid://dh6okgkcp5222" path="res://assets/graphics/shop.png" id="9_pnywb"]
+[ext_resource type="Script" uid="uid://24gsro7ny3g" path="res://assets/scripts/shop_clicker.gd" id="10_fx2rd"]
+[ext_resource type="FontFile" uid="uid://bd4iri86plmvs" path="res://font.ttf" id="11_jdjof"]
+[ext_resource type="Texture2D" uid="uid://co1iuyvs5t7cb" path="res://assets/graphics/blue_cod.png" id="12_h5j7u"]
+[ext_resource type="Texture2D" uid="uid://bbhjrteldo3ki" path="res://assets/graphics/toucan.png" id="12_s2rys"]
+[ext_resource type="Script" uid="uid://bqxust6gkydnx" path="res://assets/scripts/toucan.gd" id="13_fc420"]
+[ext_resource type="Script" uid="uid://cprehixvgn0k1" path="res://assets/scripts/click_timer.gd" id="14_p2xyf"]
+[ext_resource type="Script" uid="uid://c8ys3ls826d21" path="res://assets/scripts/spawn_timer.gd" id="15_xe33q"]
+[ext_resource type="Texture2D" uid="uid://bdh8no6kvpber" path="res://assets/graphics/bubble.png" id="16_fqk1v"]
+[ext_resource type="Texture2D" uid="uid://bfy0mfttvevvr" path="res://assets/graphics/blahaj.png" id="16_kc0sw"]
+[ext_resource type="Script" uid="uid://c02mfpu30mq5w" path="res://assets/scripts/bubble.gd" id="17_5jdip"]
+[ext_resource type="Script" uid="uid://doambvkr7546i" path="res://assets/scripts/blahaj.gd" id="17_fqk1v"]
+
+[sub_resource type="GDScript" id="GDScript_fc0e3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5jdip"]
+size = Vector2(168, 199.99992)
+
+[sub_resource type="Theme" id="Theme_j5wjh"]
+default_font = ExtResource("11_jdjof")
+default_font_size = 32
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fc420"]
+size = Vector2(163.33324, 153.09705)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqk1v"]
+size = Vector2(82.5, 82)
+
+[node name="Main" type="Node2D" unique_id=695523442]
+script = ExtResource("1_fc420")
+
+[node name="background" type="Sprite2D" parent="." unique_id=60202612]
+position = Vector2(573, 323.5)
+scale = Vector2(0.6, 0.6009259)
+texture = ExtResource("2_kc0sw")
+script = ExtResource("3_i358u")
+
+[node name="fish_parent" type="Node2D" parent="." unique_id=692749356]
+script = SubResource("GDScript_fc0e3")
+
+[node name="fish_area2d" type="Area2D" parent="fish_parent" unique_id=158667042 groups=["fish"]]
+position = Vector2(-1367, 397)
+scale = Vector2(0.5, 0.34)
+script = ExtResource("6_5jdip")
+metadata/is_original = true
+
+[node name="fish_button_to_clone" type="Sprite2D" parent="fish_parent/fish_area2d" unique_id=485461812]
+texture = ExtResource("12_h5j7u")
+metadata/is_original = true
+
+[node name="fish_collider" type="CollisionShape2D" parent="fish_parent/fish_area2d" unique_id=1553468051]
+position = Vector2(0, 2.941162)
+shape = SubResource("RectangleShape2D_5jdip")
+
+[node name="Control" type="Control" parent="." unique_id=645586738]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1037.0
+offset_top = 152.0
+offset_right = 1037.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="shop_button" type="TextureButton" parent="Control" unique_id=477030571]
+layout_mode = 0
+offset_right = 130.0
+offset_bottom = 130.0
+mouse_filter = 1
+theme = ExtResource("8_rojm1")
+texture_normal = ExtResource("9_pnywb")
+stretch_mode = 0
+script = ExtResource("10_fx2rd")
+
+[node name="shop_label" type="RichTextLabel" parent="Control" unique_id=653140448]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.079
+anchor_bottom = 0.062000003
+offset_left = 32.0
+offset_top = 116.0
+offset_right = 128.84
+offset_bottom = 158.52
+mouse_filter = 2
+theme = ExtResource("8_rojm1")
+text = "Shop"
+
+[node name="coins_label" type="RichTextLabel" parent="Control" unique_id=1668438805]
+top_level = true
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1201.0
+offset_bottom = 176.0
+scale = Vector2(1.0200951, 1.1290053)
+mouse_filter = 2
+theme = SubResource("Theme_j5wjh")
+text = "Coins:  {}
+CPS: {}
+Hit Rate: {} %
+"
+
+[node name="click_timer" type="Timer" parent="." unique_id=1213150076]
+wait_time = 3.0
+autostart = true
+script = ExtResource("14_p2xyf")
+
+[node name="spawn_timer" type="Timer" parent="." unique_id=1014421546]
+wait_time = 0.33
+autostart = true
+script = ExtResource("15_xe33q")
+
+[node name="ClickSoundManager" type="AudioStreamPlayer2D" parent="." unique_id=2021202455]
+volume_db = 15.0
+
+[node name="toucan_area2d" type="Area2D" parent="." unique_id=855676345]
+position = Vector2(-1151, 373)
+scale = Vector2(0.6, 0.6009259)
+metadata/is_original = true
+
+[node name="toucan" type="Sprite2D" parent="toucan_area2d" unique_id=1093138591]
+position = Vector2(4.999756, -4.992241)
+scale = Vector2(5, 5)
+texture = ExtResource("12_s2rys")
+script = ExtResource("13_fc420")
+
+[node name="toucan_collider" type="CollisionShape2D" parent="toucan_area2d" unique_id=279039260]
+position = Vector2(-3.333374, 11.648682)
+shape = SubResource("RectangleShape2D_fc420")
+
+[node name="blahaj_area2d" type="Area2D" parent="." unique_id=1258170752]
+position = Vector2(-1141, 498)
+metadata/is_original = true
+
+[node name="blahaj" type="Sprite2D" parent="blahaj_area2d" unique_id=888472474]
+position = Vector2(10, -11)
+scale = Vector2(6, 4.5)
+texture = ExtResource("16_kc0sw")
+script = ExtResource("17_fqk1v")
+
+[node name="blahaj_collider" type="CollisionShape2D" parent="blahaj_area2d" unique_id=922647248]
+position = Vector2(63, 8)
+shape = SubResource("RectangleShape2D_fqk1v")
+
+[node name="bubble_to_clone" type="Sprite2D" parent="." unique_id=1907261063]
+z_index = 99
+position = Vector2(-757, 280.99997)
+scale = Vector2(1, 0.88)
+texture = ExtResource("16_fqk1v")
+script = ExtResource("17_5jdip")
+metadata/is_original = true
+
+[connection signal="area_entered" from="fish_parent/fish_area2d" to="fish_parent/fish_area2d" method="_on_area_entered"]
+[connection signal="input_event" from="fish_parent/fish_area2d" to="fish_parent/fish_area2d" method="_on_input_event"]
+[connection signal="timeout" from="click_timer" to="click_timer" method="_on_timeout"]
+[connection signal="timeout" from="spawn_timer" to="spawn_timer" method="_on_timeout"]
+[connection signal="area_entered" from="blahaj_area2d" to="blahaj_area2d/blahaj" method="blahaj_collide"]
